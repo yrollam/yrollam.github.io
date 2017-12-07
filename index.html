@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!-- saved from url=(0072)https://rawgit.com/patternfly/patternfly-demo-app/master/dist/index.html -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
+
     <title>Patternfly Demo App</title>
 
     <!-- webpack bundled css -->
@@ -13,6 +13,33 @@
 
     <!-- c3.js d3.js bundled dependencies -->
     <script src="./Patternfly Demo App_files/charts.bundle.js"></script>
+
+
+  <script>
+	  (function(apiKey){
+		  (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
+			  v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
+				  o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+			  y=e.createElement(n);y.async=!0;y.src='https://pendo-dev-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+			  z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+
+		  $.getJSON('//freegeoip.net/json/?callback=?', function(data) {
+			  pendo.initialize({
+				  visitor: {
+					  id:  data.ip
+				  },
+
+				  account: {
+					  id: data['metro_code'],
+                      city: data.city,
+                      zipCode: data['zip_code'],
+
+				  }
+			  });
+		  });
+
+	  })('4c7e0603-698d-4cb5-570e-c2e5f321433c');
+  </script>
   </head>
   <body class="cards-pf">
 
@@ -425,6 +452,6 @@
     });
   </script>
 
-  
+
 
 </body></html>
