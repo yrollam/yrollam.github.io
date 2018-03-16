@@ -33,12 +33,10 @@
 				}
 			);
 
-			var visitorId = queryString.random ? Math.random().toString(36).substring(2) : queryString.visitor;
-
 			$.getJSON('//freegeoip.net/json/?callback=?', function (data) {
 				pendo.initialize({
 					visitor: {
-						id: visitorId || data.ip
+						id: queryString.visitor || data.ip
 					},
 					apiKey: 'c9629d5c-7ce7-4a72-638e-f19cba667267',
 					account: {
