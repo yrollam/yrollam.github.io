@@ -2,7 +2,7 @@
 <html class="login-pf">
 <head>
   <meta charset="utf-8">
-  <title>Magic Enterprise Application</title>
+  <title>Pendojo Enterprise Application</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -15,7 +15,7 @@
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
               v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
                   o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-              y=e.createElement(n);y.async=!0;y.src='https://pendo-magic-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+              y=e.createElement(n);y.async=!0;y.src='https://pendo-test-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
               z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
 
           var url = window.location.search;
@@ -50,11 +50,11 @@
               visitor: {
                   id: queryString.visitor || 'testuser@pendo'
               },
-              apiKey: '1731f5b5-67e8-46c7-4a4e-e6f62a663a98',
+              apiKey: '242dfe5e-d731-4553-663c-b6446f744f21',
               account: account
           });
 
-      })('1731f5b5-67e8-46c7-4a4e-e6f62a663a98');
+      })('242dfe5e-d731-4553-663c-b6446f744f21');
   </script>
 
 </head>

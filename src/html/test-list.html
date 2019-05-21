@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Magic Enterprise Application</title>
+  <title>Pendojo Enterprise Application</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -15,7 +15,7 @@
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
               v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
                   o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-              y=e.createElement(n);y.async=!0;y.src='https://pendo-magic-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+              y=e.createElement(n);y.async=!0;y.src='https://pendo-test-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
               z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
 
           var url = window.location.search;
@@ -50,11 +50,11 @@
               visitor: {
                   id: queryString.visitor || 'testuser@pendo'
               },
-              apiKey: '1731f5b5-67e8-46c7-4a4e-e6f62a663a98',
+              apiKey: '242dfe5e-d731-4553-663c-b6446f744f21',
               account: account
           });
 
-      })('1731f5b5-67e8-46c7-4a4e-e6f62a663a98');
+      })('242dfe5e-d731-4553-663c-b6446f744f21');
   </script>
 
 </head>
@@ -81,7 +81,7 @@
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
           <span class="pficon pficon-user"></span>
-          Mal Brame <b class="caret"></b>
+          Pendojo Staging <b class="caret"></b>
         </a>
         <ul class="dropdown-menu">
           <li>
@@ -119,20 +119,20 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="magic-login.html">Logout</a>
+            <a href="test-login.html">Logout</a>
           </li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-primary">
       <li>
-        <a href="magic.html">Dashboard</a>
+        <a href="test.html">Dashboard</a>
       </li>
       <li class="active">
-        <a href="magic-list.html">List View</a>
+        <a href="test-list.html">List View</a>
       </li>
       <li>
-        <a href="magic-empty.html">Empty State</a>
+        <a href="test-empty.html">Empty State</a>
       </li>
     </ul>
   </div>
@@ -215,7 +215,7 @@
           <div class="form-group toolbar-pf-view-selector">
             <ul class="list-inline">
               <li><a href="#" title="Table View"><i class="fa fa-table"></i></a></li>
-              <li><a href="magic-card.html" title="Card View"><i class="fa fa-th"></i></a></li>
+              <li><a href="test-card.html" title="Card View"><i class="fa fa-th"></i></a></li>
               <li class="active"><a href="#" title="List View"><i class="fa fa-th-list"></i></a></li>
             </ul>
           </div>
@@ -266,8 +266,8 @@
 
       <div class="list-group list-view-pf">
 
-        <div data-link="magic-details.html" class="list-group-item">
-          <a href="magic-details.html" class="list-group-item-link"></a>
+        <div data-link="test-details.html" class="list-group-item">
+          <a href="test-details.html" class="list-group-item-link"></a>
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -320,7 +320,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -373,7 +373,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -426,7 +426,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -479,7 +479,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -532,7 +532,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -585,7 +585,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -638,7 +638,7 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
@@ -691,13 +691,13 @@
           </div>
         </div><!-- list-group-item -->
 
-        <div data-link="magic-details.html" class="list-group-item">
+        <div data-link="test-details.html" class="list-group-item">
           <div class="list-view-pf-checkbox">
             <input type="checkbox">
           </div>
           <div class="list-view-pf-actions">
             <button class="btn btn-default">Action</button>
-            <div class="dropdown pull-right dropdown-kebab-pf">
+            <div class="dropdo0wn pull-right dropdown-kebab-pf">
               <button class="btn btn-link dropdown-toggle" type="button" id="dropdownKebabRight" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                 <span class="fa fa-ellipsis-v"></span>
               </button>
