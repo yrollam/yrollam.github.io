@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="7cc0cfcf-039c-4756-b9c8-e1c1ffffd52c" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="7cc0cfcf-039c-4756-b9c8-e1c1ffffd52c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/magic-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/html/magic-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/html/magic.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/html/magic.html" afterDir="false" />
+    </list>
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
     <ignored path="$PROJECT_DIR$/node_modules/" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -14,24 +23,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/magic-list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="667">
               <caret line="134" column="50" lean-forward="true" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/html/blank-magic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="965">
+              <caret line="59" selection-start-line="59" selection-end-line="59" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/html/login.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="26">
               <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+=======
+        <entry file="file://$PROJECT_DIR$/blank-magic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/html/magic-login.html">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,6 +78,24 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/magic-details.html">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/html/magic.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2782">
+              <caret line="107" column="18" lean-forward="true" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/html/list.html">
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="274">
               <caret line="126" column="27" selection-start-line="126" selection-start-column="22" selection-end-line="126" selection-end-column="27" />
@@ -61,6 +104,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/html/magic-details.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="806">
@@ -74,11 +118,23 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3094">
               <caret line="119" column="37" selection-start-line="119" selection-start-column="32" selection-end-line="119" selection-end-column="37" />
+=======
+        <entry file="file://$PROJECT_DIR$/src/html/magic-list.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/magic-list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="277">
+              <caret line="95" column="35" lean-forward="true" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/html/magic-list.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="26">
@@ -92,6 +148,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="624">
               <caret line="24" column="54" lean-forward="true" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
+=======
+        <entry file="file://$PROJECT_DIR$/blank.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
             </state>
           </provider>
         </entry>
@@ -108,6 +170,7 @@
       <find>4c7e0603-698d-4cb5-570e-c2e5f321433c</find>
       <find>c9629d5c-7ce7-4a72-638e-f19cba667267</find>
       <find>Scrumbledores</find>
+<<<<<<< HEAD
       <find>f85edfa3-f45f-4a23-48cd-7eb115813c5f'</find>
       <find>f85edfa3-f45f-4a23-48cd-7eb115813c5f</find>
       <find>list</find>
@@ -119,16 +182,25 @@
       <find>.html</find>
       <find>login</find>
       <find>login.html</find>
+=======
+      <find>list</find>
+      <find>index</find>
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
     </findStrings>
     <replaceStrings>
       <replace />
       <replace>Pendo Mal</replace>
       <replace>Mal Enterprise</replace>
       <replace>f85edfa3-f45f-4a23-48cd-7eb115813c5f</replace>
+<<<<<<< HEAD
       <replace>Mal</replace>
       <replace>1731f5b5-67e8-46c7-4a4e-e6f62a663a98</replace>
       <replace>magic-details.html</replace>
       <replace>magic-login.html</replace>
+=======
+      <replace>1731f5b5-67e8-46c7-4a4e-e6f62a663a98</replace>
+      <replace>Mal</replace>
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -140,6 +212,10 @@
       <list>
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/html/index.html" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/magic.html" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
         <option value="$PROJECT_DIR$/list.html" />
         <option value="$PROJECT_DIR$/src/html/list.html" />
         <option value="$PROJECT_DIR$/empty.html" />
@@ -160,8 +236,17 @@
         <option value="$PROJECT_DIR$/magic-card.html" />
         <option value="$PROJECT_DIR$/magic-details.html" />
         <option value="$PROJECT_DIR$/src/html/login.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/html/magic-login.html" />
         <option value="$PROJECT_DIR$/magic-list.html" />
+=======
+        <option value="$PROJECT_DIR$/blank.html" />
+        <option value="$PROJECT_DIR$/src/html/blank.html" />
+        <option value="$PROJECT_DIR$/src/html/blank-magic.html" />
+        <option value="$PROJECT_DIR$/blank-magic.html" />
+        <option value="$PROJECT_DIR$/magic-list.html" />
+        <option value="$PROJECT_DIR$/src/html/magic.html" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
       </list>
     </option>
   </component>
@@ -238,7 +323,11 @@
       <workItem from="1557431389803" duration="1023000" />
       <workItem from="1557510048126" duration="1493000" />
       <workItem from="1558015607258" duration="1512000" />
+<<<<<<< HEAD
       <workItem from="1558446673913" duration="4201000" />
+=======
+      <workItem from="1558446673913" duration="2286000" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
     </task>
     <task id="LOCAL-00001" summary="Albus Dumbledore to pendo mal">
       <created>1557431475556</created>
@@ -251,7 +340,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="8767000" />
+=======
+    <option name="totallyTimeSpent" value="6852000" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
   </component>
   <component name="ToolWindowManager">
     <frame x="764" y="-1440" width="2560" height="1440" extended-state="0" />
@@ -270,7 +363,11 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info active="true" anchor="bottom" id="Version Control" order="8" visible="true" weight="0.42687455" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.20786934" />
+=======
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20786934" />
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -352,6 +449,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1182">
@@ -428,6 +526,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/magic.html">
+=======
+    <entry file="file://$PROJECT_DIR$/magic.html">
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2649">
           <caret line="134" column="11" lean-forward="true" selection-start-line="134" selection-start-column="11" selection-end-line="134" selection-end-column="11" />
@@ -451,6 +552,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/html/card.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -459,6 +561,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/html/magic-blank.html">
+=======
+    <entry file="file://$PROJECT_DIR$/empty.html">
+>>>>>>> 6d2cd857d7dbf64ed1cbd72543442b3b325281f8
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-569">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
@@ -545,6 +650,63 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="667">
           <caret line="134" column="50" lean-forward="true" selection-start-line="134" selection-start-column="50" selection-end-line="134" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="12" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/blank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="22" column="39" lean-forward="true" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/blank-magic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="965">
+          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blank-magic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/magic-list.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/magic-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="95" column="35" lean-forward="true" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/html/magic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2782">
+          <caret line="107" column="18" lean-forward="true" selection-start-line="107" selection-start-column="18" selection-end-line="107" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
