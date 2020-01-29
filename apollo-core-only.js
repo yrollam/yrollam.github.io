@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from '/jsonwebtoken';
 
 (function(apiKey){
     (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
