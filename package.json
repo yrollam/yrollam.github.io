@@ -5,6 +5,7 @@
   "main": "server/app.js",
   "dependencies": {
     "jquery-match-height": "^0.7.2",
+    "jsonwebtoken": "^8.5.1",
     "patternfly": "3.11.0"
   },
   "devDependencies": {
