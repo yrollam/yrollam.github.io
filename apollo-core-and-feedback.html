@@ -32,33 +32,39 @@
               }
           );
 
-          var accounts = [
-              {
-                  zipCode: 90210,
-                  id: 1,
-                  city: 'Beverly Hills'
-              }, {
-                  zipCode: 27601,
-                  id: 2,
-                  city: 'Raleigh'
-              }, {
-                  zipCode: 10001,
-                  id: 3,
-                  city: 'New York City'
-              }
-          ];
-
-          var account = accounts[Math.floor(Math.random() * accounts.length)];
+          // var accounts = [
+          //     {
+          //         zipCode: 90210,
+          //         id: 1,
+          //         city: 'Beverly Hills'
+          //     }, {
+          //         zipCode: 27601,
+          //         id: 2,
+          //         city: 'Raleigh'
+          //     }, {
+          //         zipCode: 10001,
+          //         id: 3,
+          //         city: 'New York City'
+          //     }
+          // ];
+          //
+          // var account = accounts[Math.floor(Math.random() * accounts.length)];
 
           pendo.initialize({
               visitor: {
-                  id: queryString.visitor || 'testuser@pendo',
-                  full_name: '',
-                  firstName: 'MAL',
-                  lastName: 'BAE'
+                  //id: queryString.visitor || 'testuser@pendo',
+                  full_name: 'mal new visitor without email',
+                  id: 'malnew123'
+                  //firstName: 'MAL',
+                  //lastName: 'BAE'
               },
+
+              account: {
+                id: 'new123',
+                name: 'mals not pendo company'
+              }
               apiKey: '68d792c2-1374-4225-50a3-e665ede0fefb',
-              account: account
+              //account: account
           });
       })('68d792c2-1374-4225-50a3-e665ede0fefb');
   </script>
