@@ -24,7 +24,6 @@
 
       var url = window.location.search;
       var queryString = {};
-      console.log("MALLORY THIS IS THE JWT: ", jwt)
       // from https://stevenbenner.com/2010/03/javascript-regex-trick-parse-a-query-string-into-an-object/
       url.replace(
               new RegExp("([^?=&]+)(=([^&]*))?", "g"),
@@ -53,10 +52,7 @@
 
       pendo.initialize({
         visitor: {
-          id: queryString.visitor || 'testuser@pendo',
-          full_name: '',
-          firstName: 'MAL',
-          lastName: 'BAE'
+          id: queryString.visitor || 'testuser@pendo'
         },
         apiKey: '7397188a-9b85-4825-5476-20de4cd4bfbe',
         account: account
