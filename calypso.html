@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Wildlings Enterprise Application</title>
+  <title>Calypso Enterprise Application</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -19,7 +19,7 @@
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
               v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
                   o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-              y=e.createElement(n);y.async=!0;y.src='https://pendo-wildlings-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+              y=e.createElement(n);y.async=!0;y.src='https://pendo-calypso-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
               z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo')
 
           var url = window.location.search;
@@ -122,20 +122,20 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="wildlings-login.html">Logout</a>
+            <a href="calypso-login.html">Logout</a>
           </li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-primary">
       <li class="active">
-        <a href="wildlings.html">Dashboard</a>
+        <a href="calypso.html">Dashboard</a>
       </li>
       <li>
-        <a href="wildlings-list.html">List View</a>
+        <a href="calypso-list.html">List View</a>
       </li>
       <li>
-        <a href="wildlings-empty.html">Empty State</a>
+        <a href="calypso-empty.html">Empty State</a>
       </li>
     </ul>
   </div>

@@ -2,7 +2,7 @@
 <html class="login-pf">
 <head>
   <meta charset="utf-8">
-  <title>Wildlings Enterprise Application</title>
+  <title>Calypso Enterprise Application</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -15,7 +15,7 @@
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
               v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
                   o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-              y=e.createElement(n);y.async=!0;y.src='https://pendo-wildlings-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+              y=e.createElement(n);y.async=!0;y.src='https://pendo-calypso-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
               z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
 
           var url = window.location.search;
@@ -50,11 +50,11 @@
               visitor: {
                   id: queryString.visitor || 'testuser@pendo'
               },
-              apiKey: 'b9b62141-7d92-4f0f-60b8-a0e84e32bfec',
+              apiKey: 'ea753b3e-a586-4e1f-5ec0-a47659d81e27',
               account: account
           });
 
-      })('b9b62141-7d92-4f0f-60b8-a0e84e32bfec');
+      })('ea753b3e-a586-4e1f-5ec0-a47659d81e27');
   </script>
 
 </head>
@@ -70,7 +70,7 @@
       </div><!--/#brand-->
     </div><!--/.col-*-->
     <div class="col-sm-7 col-md-6 col-lg-5 login">
-      <form class="form-horizontal" role="form" action="wildlings.html">
+      <form class="form-horizontal" role="form" action="calypso.html">
         <div class="form-group">
           <label for="inputUsername" class="col-sm-2 col-md-2 control-label">Username</label>
           <div class="col-sm-10 col-md-10">
