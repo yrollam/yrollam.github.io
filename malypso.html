@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>**Apollo Core Only Enterprise Application</title>
+  <title>Malypso</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -19,7 +19,7 @@
       (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
         v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
           o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://pendo-apollo-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
+        y=e.createElement(n);y.async=!0;y.src='https://pendo-calypso-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
         z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo')
 
       var url = window.location.search;
@@ -54,10 +54,10 @@
         visitor: {
           id: queryString.visitor || 'testuser@pendo'
         },
-        apiKey: '7397188a-9b85-4825-5476-20de4cd4bfbe',
+        apiKey: '35cddb06-d5d6-47d2-7510-68114965e5d5',
         account: account
       });
-    })('7397188a-9b85-4825-5476-20de4cd4bfbe');
+    })('35cddb06-d5d6-47d2-7510-68114965e5d5');
   </script>
 
 
@@ -123,20 +123,20 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="apollo-core-only-login.html">Logout</a>
+            <a href="calypso.html">Logout</a>
           </li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-primary">
       <li class="active">
-        <a href="apollo-core-only.html">Dashboard</a>
+        <a href="malypso.html">Dashboard</a>
       </li>
       <li>
-        <a href="apollo-core-only-list.html">List View</a>
+        <a href="malypso-list.html">List View</a>
       </li>
       <li>
-        <a href="apollo-core-only-empty.html">Empty State</a>
+        <a href="malypso-empty.html">Empty State</a>
       </li>
     </ul>
   </div>
