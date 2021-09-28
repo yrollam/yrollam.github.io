@@ -79,7 +79,7 @@
     }, 500);
   }
 
-  const shouldAddAgent = !window.location.search.includes('no-agent');
+  const shouldAddAgent = window.location.search.includes('agent');
   if (shouldAddAgent) {
     initializeSnippetOnTargetWindow(window);
     addIframeWatcherToTargetWindow(window);
