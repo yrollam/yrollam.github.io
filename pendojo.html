@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Apollo Core + Feedback Enterprise Application</title>
+  <title>pendojo-no-agent</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -14,32 +14,81 @@
   <!-- c3.js d3.js bundled dependencies -->
   <script src="charts.bundle.js"></script>
 
-  <script>
-    (function(apiKey){
-      (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
-        v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
-          o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-        y=e.createElement(n);y.async=!0;y.src='https://pendo-apollo-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
-        z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+  <script id="pendo-snippet">
+    const shouldAddAgent = window.location.search.includes('agent');
+    if (shouldAddAgent) {
+      initializeSnippetOnTargetWindow(window);
+    }
 
-      // Call this whenever information about your visitors becomes available
-      // Please use Strings, Numbers, or Bools for value types.
-      pendo.initialize({
-        visitor: {
-          //id: queryString.visitor || 'testuser@pendo',
-          full_name: 'mal new visitor without email',
-          id: 'malnew123'
-          //firstName: 'MAL',
-          //lastName: 'BAE'
-        },
+    function initializeSnippetOnTargetWindow(window) {
+      const document = window.document;
 
-        account: {
-          id: 'new123',
-          name: 'mals not pendo company'
-        }
-      });
-    })('68d792c2-1374-4225-50a3-e665ede0fefb');
+      // The idea here is that this is the literal copy-pasted snippet
+      // Thats why I override window/document above, so we can shift the target window/document of the
+      // snippet to the contentWindow/contentDocument of the iframe
+      (function (apiKey) {
+        (function (p, e, n, d, o) {
+
+          var v, w, x, y, z;
+          o = p[d] = p[d] || {};
+          o._q = [];
+          v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
+          for (w = 0, x = v.length; w < x; ++w) (function (m) {
+            o[m] = o[m] || function () {
+              o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
+            };
+          })(v[w]);
+          y = e.createElement(n);
+          y.async = !0;
+          y.src = 'https://staging-cdn.pendo-dev.com/agent/static/' + apiKey + '/pendo.js';
+          z = e.getElementsByTagName(n)[0];
+          z.parentNode.insertBefore(y, z);
+        })(window, document, 'script', 'pendo');
+
+        var url = window.location.search;
+        var queryString = {};
+        // from https://stevenbenner.com/2010/03/javascript-regex-trick-parse-a-query-string-into-an-object/
+        url.replace(
+                new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                function ($0, $1, $2, $3) {
+                  queryString[$1] = $3;
+                }
+        );
+
+        var accounts = [
+          {
+            zipCode: 90210,
+            id: 'pendojo',
+            city: 'Beverly Hills'
+          }, {
+            zipCode: 27601,
+            id: 'calypso',
+            city: 'Raleigh'
+          }, {
+            zipCode: 10001,
+            id: 'dad',
+            city: 'New York City'
+          }
+        ];
+
+        var account = accounts[Math.floor(Math.random() * accounts.length)];
+
+        window.pendo.initialize({
+          visitor: {
+            id: queryString.visitor || 'testuser@pendo'
+          },
+          disableGuideCenterContentSearch: true,
+          apiKey: '350a53b0-77fa-4f30-6396-b7db5fdde945',
+          account: account
+        });
+
+      })('350a53b0-77fa-4f30-6396-b7db5fdde945');
+
+    }
+
   </script>
+
+
 </head>
 <body class="cards-pf">
 
@@ -102,20 +151,20 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="apollo-core-and-feedback-login.html">Logout</a>
+            <a href="pendojo.html">Logout</a>
           </li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-primary">
       <li class="active">
-        <a href="apollo-core-and-feedback-ORIGINAL.html">Dashboard</a>
+        <a href="pendojo.html">Dashboard</a>
       </li>
       <li>
-        <a href="apollo-core-and-feedback-list.html">List View</a>
+        <a href="pendojo-list.html">List View</a>
       </li>
       <li>
-        <a href="apollo-core-and-feedback-empty.html">Empty State</a>
+        <a href="pendojo-empty.html">Empty State</a>
       </li>
     </ul>
   </div>
@@ -227,45 +276,45 @@
               <div id="chart-pf-donut-1"></div>
               <div class="chart-pf-sparkline" id="chart-pf-sparkline-1"></div>
               <script>
-                  var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
-                  donutChartConfig.bindto = '#chart-pf-donut-1';
-                  donutChartConfig.data = {
-                      type: "donut",
-                      columns: [
-                          ["Used", 95],
-                          ["Available", 5]
-                      ],
-                      groups: [
-                          ["used", "available"]
-                      ],
-                      order: null
-                  };
-                  donutChartConfig.color = {
-                      pattern: ["#cc0000","#D1D1D1"]
-                  };
-                  donutChartConfig.tooltip = {
-                      contents: function (d) {
-                          return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
-                              Math.round(d[0].ratio * 100) + '%' + ' MHz ' + d[0].name +
-                              '</span>';
-                      }
-                  };
-                  var chart1 = c3.generate(donutChartConfig);
+                var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
+                donutChartConfig.bindto = '#chart-pf-donut-1';
+                donutChartConfig.data = {
+                  type: "donut",
+                  columns: [
+                    ["Used", 95],
+                    ["Available", 5]
+                  ],
+                  groups: [
+                    ["used", "available"]
+                  ],
+                  order: null
+                };
+                donutChartConfig.color = {
+                  pattern: ["#cc0000","#D1D1D1"]
+                };
+                donutChartConfig.tooltip = {
+                  contents: function (d) {
+                    return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
+                            Math.round(d[0].ratio * 100) + '%' + ' MHz ' + d[0].name +
+                            '</span>';
+                  }
+                };
+                var chart1 = c3.generate(donutChartConfig);
 
-                  var donutChartTitle = d3.select("#chart-pf-donut-1").select('text.c3-chart-arcs-title');
-                  donutChartTitle.text("");
-                  donutChartTitle.insert('tspan').text("950").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
-                  donutChartTitle.insert('tspan').text("MHz Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
+                var donutChartTitle = d3.select("#chart-pf-donut-1").select('text.c3-chart-arcs-title');
+                donutChartTitle.text("");
+                donutChartTitle.insert('tspan').text("950").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
+                donutChartTitle.insert('tspan').text("MHz Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
 
-                  var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
-                  sparklineChartConfig.bindto = '#chart-pf-sparkline-1';
-                  sparklineChartConfig.data = {
-                      columns: [
-                          ['%', 10, 50, 28, 20, 31, 27, 60, 36, 52, 55, 62, 68, 69, 88, 74, 88, 95],
-                      ],
-                      type: 'area'
-                  };
-                  var chart2 = c3.generate(sparklineChartConfig);
+                var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
+                sparklineChartConfig.bindto = '#chart-pf-sparkline-1';
+                sparklineChartConfig.data = {
+                  columns: [
+                    ['%', 10, 50, 28, 20, 31, 27, 60, 36, 52, 55, 62, 68, 69, 88, 74, 88, 95],
+                  ],
+                  type: 'area'
+                };
+                var chart2 = c3.generate(sparklineChartConfig);
               </script>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -280,45 +329,45 @@
               <div id="chart-pf-donut-2"></div>
               <div class="chart-pf-sparkline" id="chart-pf-sparkline-2"></div>
               <script>
-                  var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
-                  donutChartConfig.bindto = '#chart-pf-donut-2';
-                  donutChartConfig.data = {
-                      type: "donut",
-                      columns: [
-                          ["Used", 41],
-                          ["Available", 59]
-                      ],
-                      groups: [
-                          ["used", "available"]
-                      ],
-                      order: null
-                  };
-                  donutChartConfig.color = {
-                      pattern: ["#3f9c35","#D1D1D1"]
-                  };
-                  donutChartConfig.tooltip = {
-                      contents: function (d) {
-                          return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
-                              Math.round(d[0].ratio * 100) + '%' + ' GB ' + d[0].name +
-                              '</span>';
-                      }
-                  };
-                  var chart3 = c3.generate(donutChartConfig);
+                var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
+                donutChartConfig.bindto = '#chart-pf-donut-2';
+                donutChartConfig.data = {
+                  type: "donut",
+                  columns: [
+                    ["Used", 41],
+                    ["Available", 59]
+                  ],
+                  groups: [
+                    ["used", "available"]
+                  ],
+                  order: null
+                };
+                donutChartConfig.color = {
+                  pattern: ["#3f9c35","#D1D1D1"]
+                };
+                donutChartConfig.tooltip = {
+                  contents: function (d) {
+                    return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
+                            Math.round(d[0].ratio * 100) + '%' + ' GB ' + d[0].name +
+                            '</span>';
+                  }
+                };
+                var chart3 = c3.generate(donutChartConfig);
 
-                  var donutChartTitle = d3.select("#chart-pf-donut-2").select('text.c3-chart-arcs-title');
-                  donutChartTitle.text("");
-                  donutChartTitle.insert('tspan').text("176").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
-                  donutChartTitle.insert('tspan').text("GB Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
+                var donutChartTitle = d3.select("#chart-pf-donut-2").select('text.c3-chart-arcs-title');
+                donutChartTitle.text("");
+                donutChartTitle.insert('tspan').text("176").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
+                donutChartTitle.insert('tspan').text("GB Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
 
-                  var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
-                  sparklineChartConfig.bindto = '#chart-pf-sparkline-2';
-                  sparklineChartConfig.data = {
-                      columns: [
-                          ['%', 35, 36, 20, 30, 31, 22, 44, 36, 40, 41, 55, 52, 48, 48, 50, 40, 41],
-                      ],
-                      type: 'area'
-                  };
-                  var chart4 = c3.generate(sparklineChartConfig);
+                var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
+                sparklineChartConfig.bindto = '#chart-pf-sparkline-2';
+                sparklineChartConfig.data = {
+                  columns: [
+                    ['%', 35, 36, 20, 30, 31, 22, 44, 36, 40, 41, 55, 52, 48, 48, 50, 40, 41],
+                  ],
+                  type: 'area'
+                };
+                var chart4 = c3.generate(sparklineChartConfig);
               </script>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
@@ -333,45 +382,45 @@
               <div id="chart-pf-donut-3"></div>
               <div class="chart-pf-sparkline" id="chart-pf-sparkline-3"></div>
               <script>
-                  var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
-                  donutChartConfig.bindto = '#chart-pf-donut-3';
-                  donutChartConfig.data = {
-                      type: "donut",
-                      columns: [
-                          ["Used", 85],
-                          ["Available", 15]
-                      ],
-                      groups: [
-                          ["used", "available"]
-                      ],
-                      order: null
-                  };
-                  donutChartConfig.color = {
-                      pattern: ["#EC7A08","#D1D1D1"]
-                  };
-                  donutChartConfig.tooltip = {
-                      contents: function (d) {
-                          return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
-                              Math.round(d[0].ratio * 100) + '%' + ' Gbps ' + d[0].name +
-                              '</span>';
-                      }
-                  };
-                  var chart5 = c3.generate(donutChartConfig);
+                var donutChartConfig = jQuery().c3ChartDefaults().getDefaultDonutConfig('A');
+                donutChartConfig.bindto = '#chart-pf-donut-3';
+                donutChartConfig.data = {
+                  type: "donut",
+                  columns: [
+                    ["Used", 85],
+                    ["Available", 15]
+                  ],
+                  groups: [
+                    ["used", "available"]
+                  ],
+                  order: null
+                };
+                donutChartConfig.color = {
+                  pattern: ["#EC7A08","#D1D1D1"]
+                };
+                donutChartConfig.tooltip = {
+                  contents: function (d) {
+                    return '<span class="donut-tooltip-pf" style="white-space: nowrap;">' +
+                            Math.round(d[0].ratio * 100) + '%' + ' Gbps ' + d[0].name +
+                            '</span>';
+                  }
+                };
+                var chart5 = c3.generate(donutChartConfig);
 
-                  var donutChartTitle = d3.select("#chart-pf-donut-3").select('text.c3-chart-arcs-title');
-                  donutChartTitle.text("");
-                  donutChartTitle.insert('tspan').text("1100").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
-                  donutChartTitle.insert('tspan').text("Gbps Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
+                var donutChartTitle = d3.select("#chart-pf-donut-3").select('text.c3-chart-arcs-title');
+                donutChartTitle.text("");
+                donutChartTitle.insert('tspan').text("1100").classed('donut-title-big-pf', true).attr('dy', 0).attr('x', 0);
+                donutChartTitle.insert('tspan').text("Gbps Used").classed('donut-title-small-pf', true).attr('dy', 20).attr('x', 0);
 
-                  var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
-                  sparklineChartConfig.bindto = '#chart-pf-sparkline-3';
-                  sparklineChartConfig.data = {
-                      columns: [
-                          ['%', 60, 55, 70, 44, 31, 67, 54, 46, 58, 75, 62, 68, 69, 88, 74, 88, 85],
-                      ],
-                      type: 'area'
-                  };
-                  var chart6 = c3.generate(sparklineChartConfig);
+                var sparklineChartConfig = jQuery().c3ChartDefaults().getDefaultSparklineConfig();
+                sparklineChartConfig.bindto = '#chart-pf-sparkline-3';
+                sparklineChartConfig.data = {
+                  columns: [
+                    ['%', 60, 55, 70, 44, 31, 67, 54, 46, 58, 75, 62, 68, 69, 88, 74, 88, 85],
+                  ],
+                  type: 'area'
+                };
+                var chart6 = c3.generate(sparklineChartConfig);
               </script>
             </div>
           </div>
@@ -443,13 +492,13 @@
 
 
 <script>
-    $(function() {
-        // matchHeight the contents of each .card-pf and then the .card-pf itself
-        $(".row-cards-pf > [class*='col'] > .card-pf .card-pf-title").matchHeight();
-        $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-body").matchHeight();
-        $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-footer").matchHeight();
-        $(".row-cards-pf > [class*='col'] > .card-pf").matchHeight();
-    });
+  $(function() {
+    // matchHeight the contents of each .card-pf and then the .card-pf itself
+    $(".row-cards-pf > [class*='col'] > .card-pf .card-pf-title").matchHeight();
+    $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-body").matchHeight();
+    $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-footer").matchHeight();
+    $(".row-cards-pf > [class*='col'] > .card-pf").matchHeight();
+  });
 </script>
 
 </body>

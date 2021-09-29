@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Apollo Core + Feedback Enterprise Application</title>
+  <title>pendojo-no-agent</title>
 
   <!-- webpack bundled css -->
   <link rel="stylesheet" href="css/patternfly.min.css">
@@ -10,51 +10,78 @@
 
   <!-- webpack bundled dependencies -->
   <script src="main.bundle.js"></script>
-  <script>
-      (function(apiKey){
-          (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
-              v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
-                  o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
-              y=e.createElement(n);y.async=!0;y.src='https://pendo-apollo-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
-              z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+  <script id="pendo-snippet">
+    const shouldAddAgent = window.location.search.includes('agent');
+    if (shouldAddAgent) {
+      initializeSnippetOnTargetWindow(window);
+    }
 
-          var url = window.location.search;
-          var queryString = {};
-          // from https://stevenbenner.com/2010/03/javascript-regex-trick-parse-a-query-string-into-an-object/
-          url.replace(
-              new RegExp("([^?=&]+)(=([^&]*))?", "g"),
-              function ($0, $1, $2, $3) {
+    function initializeSnippetOnTargetWindow(window) {
+      const document = window.document;
+
+      // The idea here is that this is the literal copy-pasted snippet
+      // Thats why I override window/document above, so we can shift the target window/document of the
+      // snippet to the contentWindow/contentDocument of the iframe
+      (function (apiKey) {
+        (function (p, e, n, d, o) {
+
+          var v, w, x, y, z;
+          o = p[d] = p[d] || {};
+          o._q = [];
+          v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
+          for (w = 0, x = v.length; w < x; ++w) (function (m) {
+            o[m] = o[m] || function () {
+              o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
+            };
+          })(v[w]);
+          y = e.createElement(n);
+          y.async = !0;
+          y.src = 'https://staging-cdn.pendo-dev.com/agent/static/' + apiKey + '/pendo.js';
+          z = e.getElementsByTagName(n)[0];
+          z.parentNode.insertBefore(y, z);
+        })(window, document, 'script', 'pendo');
+
+        var url = window.location.search;
+        var queryString = {};
+        // from https://stevenbenner.com/2010/03/javascript-regex-trick-parse-a-query-string-into-an-object/
+        url.replace(
+                new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                function ($0, $1, $2, $3) {
                   queryString[$1] = $3;
-              }
-          );
+                }
+        );
 
-          var accounts = [
-              {
-                  zipCode: 90210,
-                  id: 1,
-                  city: 'Beverly Hills'
-              }, {
-                  zipCode: 27601,
-                  id: 2,
-                  city: 'Raleigh'
-              }, {
-                  zipCode: 10001,
-                  id: 3,
-                  city: 'New York City'
-              }
-          ];
+        var accounts = [
+          {
+            zipCode: 90210,
+            id: 'pendojo',
+            city: 'Beverly Hills'
+          }, {
+            zipCode: 27601,
+            id: 'calypso',
+            city: 'Raleigh'
+          }, {
+            zipCode: 10001,
+            id: 'dad',
+            city: 'New York City'
+          }
+        ];
 
-          var account = accounts[Math.floor(Math.random() * accounts.length)];
+        var account = accounts[Math.floor(Math.random() * accounts.length)];
 
-          pendo.initialize({
-              visitor: {
-                  id: queryString.visitor || 'testuser@pendo'
-              },
-              apiKey: '68d792c2-1374-4225-50a3-e665ede0fefb',
-              account: account
-          });
+        window.pendo.initialize({
+          visitor: {
+            id: queryString.visitor || 'testuser@pendo'
+          },
+          disableGuideCenterContentSearch: true,
+          apiKey: '350a53b0-77fa-4f30-6396-b7db5fdde945',
+          account: account
+        });
 
-      })('68d792c2-1374-4225-50a3-e665ede0fefb');
+      })('350a53b0-77fa-4f30-6396-b7db5fdde945');
+
+    }
+
   </script>
 </head>
 <body class="cards-pf">
@@ -118,20 +145,20 @@
           </li>
           <li class="divider"></li>
           <li>
-            <a href="apollo-core-and-feedback-login.html">Logout</a>
+            <a href="pendojo-login.html">Logout</a>
           </li>
         </ul>
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-primary">
       <li>
-        <a href="apollo-core-and-feedback-ORIGINAL.html">Dashboard</a>
+        <a href="pendojo.html">Dashboard</a>
       </li>
       <li class="active">
-        <a href="apollo-core-and-feedback-list.html">List View</a>
+        <a href="pendojo-list.html">List View</a>
       </li>
       <li>
-        <a href="apollo-core-and-feedback-empty.html">Empty State</a>
+        <a href="pendojo-empty.html">Empty State</a>
       </li>
     </ul>
   </div>
@@ -215,7 +242,7 @@
             <ul class="list-inline">
               <li><a href="#" title="Table View"><i class="fa fa-table"></i></a></li>
               <li class="active"><a href="#" title="Card View"><i class="fa fa-th"></i></a></li>
-              <li><a href="apollo-core-and-feedback-list.html" title="List View"><i class="fa fa-th-list"></i></a></li>
+              <li><a href="pendojo-list.html" title="List View"><i class="fa fa-th-list"></i></a></li>
             </ul>
           </div>
         </div>
@@ -251,25 +278,25 @@
   </div><!-- /row -->
 </div><!-- /container -->
 <script>
-    (function($) {
-        $(document).ready(function() {
-            // Upon clicking the find button, show the find dropdown content
-            $(".btn-find").click(function () {
-                $(".find-pf-dropdown-container").toggle();
-            });
-            // Upon clicking the find close button, hide the find dropdown content
-            $(".btn-find-close").click(function () {
-                $(".find-pf-dropdown-container").hide();
-            });
+  (function($) {
+    $(document).ready(function() {
+      // Upon clicking the find button, show the find dropdown content
+      $(".btn-find").click(function () {
+        $(".find-pf-dropdown-container").toggle();
+      });
+      // Upon clicking the find close button, hide the find dropdown content
+      $(".btn-find-close").click(function () {
+        $(".find-pf-dropdown-container").hide();
+      });
 
-        });
-    })(jQuery);
+    });
+  })(jQuery);
 </script>
 
 <div class="container-fluid container-cards-pf">
   <div class="row row-cards-pf">
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -294,7 +321,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -319,7 +346,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -344,7 +371,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -369,7 +396,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -394,7 +421,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -419,7 +446,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -444,7 +471,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -469,7 +496,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -494,7 +521,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -519,7 +546,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -544,7 +571,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -569,7 +596,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -594,7 +621,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -619,7 +646,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -644,7 +671,7 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
-      <div data-link="apollo-core-and-feedback-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
+      <div data-link="pendojo-details.html" class="card-pf card-pf-view card-pf-view-select card-pf-view-multi-select">
         <div class="card-pf-body">
           <div class="card-pf-top-element">
             <span class="fa fa-birthday-cake card-pf-icon-circle"></span>
@@ -671,29 +698,29 @@
   </div>
 </div>
 <script>
-    $(function() {
-        // matchHeight the contents of each .card-pf and then the .card-pf itself
-        $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-body").matchHeight();
+  $(function() {
+    // matchHeight the contents of each .card-pf and then the .card-pf itself
+    $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-body").matchHeight();
+  });
+  $(document).ready(function() {
+    // Card Multi Select
+    $('input[type=checkbox]').click(function() {
+      if ($(this).parent().parent().hasClass('active'))
+      { $(this).parent().parent().removeClass('active'); }
+      else
+      { $(this).parent().parent().addClass('active'); }
     });
-    $(document).ready(function() {
-        // Card Multi Select
-        $('input[type=checkbox]').click(function() {
-            if ($(this).parent().parent().hasClass('active'))
-            { $(this).parent().parent().removeClass('active'); }
-            else
-            { $(this).parent().parent().addClass('active'); }
-        });
 
-        // Card navigation to contents/details page
-        $(".card-pf").click(function(e){
-            var target = e.target;
-            //check if clicked element is a div, and not <a>, button or input
-            if($(target).is('div')) {
-                window.location = $(this).data("link");
-            }
-        });
-
+    // Card navigation to contents/details page
+    $(".card-pf").click(function(e){
+      var target = e.target;
+      //check if clicked element is a div, and not <a>, button or input
+      if($(target).is('div')) {
+        window.location = $(this).data("link");
+      }
     });
+
+  });
 </script>
 </body>
 </html>
