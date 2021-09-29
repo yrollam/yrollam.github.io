@@ -11,6 +11,14 @@
   <!-- webpack bundled dependencies -->
   <script src="main.bundle.js"></script>
   <script>
+    const shouldAddAgent = window.location.search.includes('agent');
+    if (shouldAddAgent) {
+      initializeSnippetOnTargetWindow(window);
+    }
+
+    function initializeSnippetOnTargetWindow(window) {
+      const document = window.document;
+
       (function(apiKey){
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
               v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
@@ -31,15 +39,15 @@
           var accounts = [
               {
                   zipCode: 90210,
-                  id: 1,
+                  id: 'pendojo',
                   city: 'Beverly Hills'
               }, {
                   zipCode: 27601,
-                  id: 2,
+                  id: 'calypso',
                   city: 'Raleigh'
               }, {
                   zipCode: 10001,
-                  id: 3,
+                  id: 'dad',
                   city: 'New York City'
               }
           ];
