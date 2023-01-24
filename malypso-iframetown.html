@@ -1,8 +1,8 @@
 <html>
-<head>
-  <title>MALYPSO IFRAME TOWN</title>
-</head>
-<style>
+  <head>
+    <title>MALYPSO IFRAME TOWN</title>
+  </head>
+  <style>
   body {
     margin: 0;
     padding: 0;
@@ -31,14 +31,22 @@
     height: 80%;
   }
 </style>
-<body>
-<div className="title">HOWDY PARDNER, WELCOME TO MALYPSO IFRAME TOWN!</div>
-<div className="iframe-container">
-  <iframe src="/malypso-iframe-town-inner-1.html"></iframe>
-  <iframe src="/malypso-iframe-town-inner-1.html"></iframe>
-  <iframe src="https://someapp.com/"></iframe>
-</div>
-<script id="pendo-snippet">
+  <body>
+    <div className="title">HOWDY PARDNER, WELCOME TO MALYPSO IFRAME TOWN!</div>
+    <div class="text">
+      Inner, inner iframe. <a href="/iframe-town-inner-1.html">(take me to
+        inner-1)</a>
+    </div>
+    <div class="text">
+      Inner, inner iframe. <a href="/iframe-town-inner-2.html">(take me to
+        inner-2)</a>
+    </div>
+    <div className="iframe-container">
+      <iframe src="/malypso-iframe-town-inner-1.html"></iframe>
+      <iframe src="/malypso-iframe-town-inner-1.html"></iframe>
+      <iframe src="https://someapp.com/"></iframe>
+    </div>
+    <script id="pendo-snippet">
   function addSnippetToFrame(iframe) {
     var readyState = iframe.contentWindow.document.readyState;
     var iframeHref = iframe.contentWindow.location.href;
@@ -137,5 +145,5 @@
   }
 
 </script>
-</body>
+  </body>
 </html>
