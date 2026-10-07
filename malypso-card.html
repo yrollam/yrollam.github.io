@@ -28,7 +28,7 @@
           var v, w, x, y, z;
           o = p[d] = p[d] || {};
           o._q = [];
-          v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
+          v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track', 'trackAgent'];
           for (w = 0, x = v.length; w < x; ++w) (function (m) {
             o[m] = o[m] || function () {
               o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
@@ -74,11 +74,11 @@
             id: queryString.visitor || 'testuser@pendo'
           },
           disableGuideCenterContentSearch: true,
-          apiKey: '35cddb06-d5d6-47d2-7510-68114965e5d5',
+          apiKey: '60c869a6-688d-4080-8d80-ff7941d26643',
           account: account
         });
 
-      })('35cddb06-d5d6-47d2-7510-68114965e5d5');
+      })('60c869a6-688d-4080-8d80-ff7941d26643');
 
     }
 
