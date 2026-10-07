@@ -679,9 +679,29 @@
         // Card Multi Select
         $('input[type=checkbox]').click(function() {
             if ($(this).parent().parent().hasClass('active'))
-            { $(this).parent().parent().removeClass('active'); }
+            {
+                $(this).parent().parent().removeClass('active');
+                // Pendo Track Event - Card deselected
+                if (typeof pendo !== "undefined") {
+                    var cardTitle = $(this).closest('.card-pf').find('.card-pf-title').text().trim();
+                    pendo.track("Card Deselected", {
+                        card_title: cardTitle,
+                        page: window.location.pathname
+                    });
+                }
+            }
             else
-            { $(this).parent().parent().addClass('active'); }
+            {
+                $(this).parent().parent().addClass('active');
+                // Pendo Track Event - Card selected
+                if (typeof pendo !== "undefined") {
+                    var cardTitle = $(this).closest('.card-pf').find('.card-pf-title').text().trim();
+                    pendo.track("Card Selected", {
+                        card_title: cardTitle,
+                        page: window.location.pathname
+                    });
+                }
+            }
         });
 
         // Card navigation to contents/details page
@@ -689,6 +709,14 @@
             var target = e.target;
             //check if clicked element is a div, and not <a>, button or input
             if($(target).is('div')) {
+                // Pendo Track Event - Card navigated
+                if (typeof pendo !== "undefined") {
+                    var cardTitle = $(this).find('.card-pf-title').text().trim();
+                    pendo.track("Card Navigated", {
+                        card_title: cardTitle,
+                        target_url: $(this).data("link")
+                    });
+                }
                 window.location = $(this).data("link");
             }
         });

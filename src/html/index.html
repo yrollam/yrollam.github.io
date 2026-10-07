@@ -469,6 +469,25 @@
         $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-body").matchHeight();
         $(".row-cards-pf > [class*='col'] > .card-pf > .card-pf-footer").matchHeight();
         $(".row-cards-pf > [class*='col'] > .card-pf").matchHeight();
+
+        // Pendo Track Event - User logged out
+        $("a[href='login.html']").on("click", function() {
+            if (typeof pendo !== "undefined") {
+                pendo.track("User Logged Out", {
+                    source_page: window.location.pathname
+                });
+            }
+        });
+
+        // Pendo Track Event - Dashboard status card clicked
+        $(".card-pf-aggregate-status a:not(.add)").on("click", function() {
+            if (typeof pendo !== "undefined") {
+                var cardTitle = $(this).closest('.card-pf-aggregate-status').find('.card-pf-title').text().trim();
+                pendo.track("Dashboard Status Card Clicked", {
+                    card_title: cardTitle
+                });
+            }
+        });
     });
 </script>
 

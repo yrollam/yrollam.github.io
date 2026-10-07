@@ -176,6 +176,42 @@
   </div>
 </div><!-- container -->
 
+<script>
+    // Pendo Track Events - Empty State Actions
+    (function() {
+        document.addEventListener("DOMContentLoaded", function() {
+            // Track main action button click
+            var mainActionBtn = document.querySelector(".blank-slate-pf-main-action .btn");
+            if (mainActionBtn) {
+                mainActionBtn.addEventListener("click", function() {
+                    if (typeof pendo !== "undefined") {
+                        pendo.track("Empty State Main Action Clicked", {
+                            button_text: this.textContent.trim(),
+                            page: window.location.pathname
+                        });
+                    }
+                });
+            }
+
+            // Track secondary action button clicks
+            var secondaryBtns = document.querySelectorAll(".blank-slate-pf-secondary-action .btn");
+            for (var i = 0; i < secondaryBtns.length; i++) {
+                (function(btn, index) {
+                    btn.addEventListener("click", function() {
+                        if (typeof pendo !== "undefined") {
+                            pendo.track("Empty State Secondary Action Clicked", {
+                                button_text: this.textContent.trim(),
+                                button_position: String(index + 1),
+                                page: window.location.pathname
+                            });
+                        }
+                    });
+                })(secondaryBtns[i], i);
+            }
+        });
+    })();
+</script>
+
 
 </body>
 </html>
