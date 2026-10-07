@@ -97,7 +97,7 @@
         var v, w, x, y, z;
         o = p[d] = p[d] || {};
         o._q = [];
-        v = ['initialize', 'identify', 'updateOptions', 'pageLoad', 'track', 'trackAgent'];
+        v = ['initialize', 'identify', 'updateOptions', 'pageLoad'];
         for (w = 0, x = v.length; w < x; ++w) (function (m) {
           o[m] = o[m] || function () {
             o._q[m === v[0] ? 'unshift' : 'push']([m].concat([].slice.call(arguments, 0)));
@@ -124,7 +124,7 @@
           id: queryString.visitor || 'testuser@pendo'
         },
         disableGuideCenterContentSearch: true,
-        apiKey: '8b2f401c-af72-4468-b4ad-ba353a7f1ea3',
+        apiKey: '350a53b0-77fa-4f30-6396-b7db5fdde945',
         account: {
           id: 12345,
           city: 'Raleigh',
@@ -132,7 +132,7 @@
         }
       });
 
-    })('8b2f401c-af72-4468-b4ad-ba353a7f1ea3');
+    })('350a53b0-77fa-4f30-6396-b7db5fdde945');
 
   }
 
