@@ -13,7 +13,7 @@
   <script>
       (function(apiKey){
           (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=[];
-              v=['initialize','identify','updateOptions','pageLoad','track','trackAgent'];for(w=0,x=v.length;w<x;++w)(function(m){
+              v=['initialize','identify','updateOptions','pageLoad'];for(w=0,x=v.length;w<x;++w)(function(m){
                   o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
               y=e.createElement(n);y.async=!0;y.src='https://pendo-magic-static.storage.googleapis.com/agent/static/'+apiKey+'/pendo.js';
               z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
@@ -50,12 +50,12 @@
               visitor: {
                   id: queryString.visitor || 'testuser@pendo'
               },
-              apiKey: '60c869a6-688d-4080-8d80-ff7941d26643',
+              apiKey: '1731f5b5-67e8-46c7-4a4e-e6f62a663a98',
               account: account,
               enableGuideTimeout: true
           });
 
-      })('60c869a6-688d-4080-8d80-ff7941d26643');
+      })('1731f5b5-67e8-46c7-4a4e-e6f62a663a98');
   </script>
 
 </head>
