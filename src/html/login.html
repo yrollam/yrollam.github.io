@@ -104,5 +104,20 @@
     </div><!--/.col-*-->
   </div><!--/.row-->
 </div><!--/.container-->
+
+<script>
+    // Pendo Track Events - Login
+    (function() {
+        document.querySelector("form").addEventListener("submit", function() {
+            var username = document.getElementById("inputUsername").value;
+            if (typeof pendo !== "undefined") {
+                pendo.track("Login Form Submitted", {
+                    has_username: username ? "true" : "false",
+                    page: window.location.pathname
+                });
+            }
+        });
+    })();
+</script>
 </body>
 </html>
